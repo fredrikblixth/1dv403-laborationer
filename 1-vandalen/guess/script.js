@@ -21,7 +21,7 @@ window.onload = function(){
             return [false, "Kan inte tolkas som ett heltal"];
 		}
 		
-		if (number < 0 || number > 100) {
+		if (number <= 0 || number > 100) {
             return [false, "Talet är utanför intervallet 0-100"];
 		}
 		

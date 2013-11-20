@@ -7,10 +7,19 @@ var makePerson = function(persArr) {
    var names = [];
    var totalAge = 0;
    
+   function isInteger(x) {
+       return (x % 1 === 0) ? true : false;
+   }
+   
    function addNamesAndAge(person) {
-       ages.push(person.age);
-       names.push(person.name);
-       totalAge += person.age;
+       if(!isNaN(person.age) && isInteger(person.age))
+       {
+           ages.push(person.age);
+           totalAge += person.age;
+       }
+       if(typeof(person.name) === "string"){
+           names.push(person.name);
+       }
    }
    
    persArr.forEach(addNamesAndAge);
