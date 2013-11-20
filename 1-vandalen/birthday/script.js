@@ -4,14 +4,32 @@ window.onload = function(){
 
 	
 	var birthday = function(date){
-		
+        
+        if(!/^\d{4}\-\d{2}\-\d{2}$/.test(date)) {
+            throw {
+                name: "InvalidDateException",
+                level: "Show stopper",
+                message: "The date format is invalid. Try again.",
+                toString: function(){return this.name + ": " + this.message}
+            }
+        }
 
+        var originalBirthday = new Date(date);
+        var today = new Date();
+        var nextBirthday = new Date((today.getFullYear()), originalBirthday.getMonth(), originalBirthday.getDate());
 
-			// Din kod här.
+        var milliSecondsToNextBirthday = nextBirthday.getTime() - today.getTime();
 
+        if (isNaN(milliSecondsToNextBirthday)) {
+            throw {
+                name: "InvalidDateException",
+                level: "Show stopper",
+                message: "The date format is invalid. Try again",
+                toString: function(){return this.name + ": " + this.message }
+            }
+        }
 
-
-
+        return Math.ceil(milliSecondsToNextBirthday / (1000 * 60 * 60 * 24));
 	};
 	// ------------------------------------------------------------------------------
 
