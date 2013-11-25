@@ -10,8 +10,8 @@ window.onload = function(){
                 name: "InvalidDateException",
                 level: "Show stopper",
                 message: "The date format is invalid. Try again.",
-                toString: function(){return this.name + ": " + this.message}
-            }
+                toString: function(){return this.name + ": " + this.message; }
+            };
         }
 
         var originalBirthday = new Date(date);
@@ -25,8 +25,8 @@ window.onload = function(){
                 name: "InvalidDateException",
                 level: "Show stopper",
                 message: "The date format is invalid. Try again",
-                toString: function(){return this.name + ": " + this.message }
-            }
+                toString: function(){return this.name + ": " + this.message; }
+            };
         }
 
         return Math.ceil(milliSecondsToNextBirthday / (1000 * 60 * 60 * 24));
