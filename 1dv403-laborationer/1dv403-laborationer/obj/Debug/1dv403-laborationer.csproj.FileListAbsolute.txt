@@ -1,0 +1,6 @@
+C:\Users\Fredrik\Documents\GitHub\1dv403-laborationer\1dv403-laborationer\1dv403-laborationer\bin\1dv403-laborationer.dll.config
+C:\Users\Fredrik\Documents\GitHub\1dv403-laborationer\1dv403-laborationer\1dv403-laborationer\bin\1dv403-laborationer.dll
+C:\Users\Fredrik\Documents\GitHub\1dv403-laborationer\1dv403-laborationer\1dv403-laborationer\bin\1dv403-laborationer.pdb
+C:\Users\Fredrik\Documents\GitHub\1dv403-laborationer\1dv403-laborationer\1dv403-laborationer\obj\Debug\1dv403-laborationer.csprojResolveAssemblyReference.cache
+C:\Users\Fredrik\Documents\GitHub\1dv403-laborationer\1dv403-laborationer\1dv403-laborationer\obj\Debug\1dv403-laborationer.dll
+C:\Users\Fredrik\Documents\GitHub\1dv403-laborationer\1dv403-laborationer\1dv403-laborationer\obj\Debug\1dv403-laborationer.pdb

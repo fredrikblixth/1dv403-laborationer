@@ -2,26 +2,21 @@
 
 function Message(message, date) {
     
-    var text = message;
-    var messageDate = date;
-    
     this.getText = function () {
-        return text;
+        return message;
     };
     
-    this.setText = function () {
+    this.setText = function (_text) {
         message = text;
     };
     
     this.getDate = function () {
-        return messageDate;
+        return date;
     };
     
-    this.setDate = function () {
+    this.setDate = function (_date) {
         date = messageDate;
     };
-    
-    return {text:this.text, messageDate:this.messageDate};
 }
 
 Message.prototype.toString = function () {
@@ -29,7 +24,8 @@ Message.prototype.toString = function () {
 };
 
 Message.prototype.getHTMLText = function () {
-};
+    return this.message.replace(/[\n\r]/g, "<br />");
+    };
 
 Message.prototype.getDateText = function () {
 };

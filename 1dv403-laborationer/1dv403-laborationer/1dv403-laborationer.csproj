@@ -69,6 +69,37 @@
     <Content Include="1-vandalen\tests\vandalen.js" />
     <Content Include="1-vandalen\vandalen\index.html" />
     <Content Include="1-vandalen\vandalen\script.js" />
+    <Content Include="2-labbymezzage\css\foundation.css" />
+    <Content Include="2-labbymezzage\css\foundation.min.css" />
+    <Content Include="2-labbymezzage\css\normalize.css" />
+    <Content Include="2-labbymezzage\index.html" />
+    <Content Include="2-labbymezzage\js\foundation.min.js" />
+    <Content Include="2-labbymezzage\js\foundation\foundation.abide.js" />
+    <Content Include="2-labbymezzage\js\foundation\foundation.accordion.js" />
+    <Content Include="2-labbymezzage\js\foundation\foundation.alert.js" />
+    <Content Include="2-labbymezzage\js\foundation\foundation.clearing.js" />
+    <Content Include="2-labbymezzage\js\foundation\foundation.dropdown.js" />
+    <Content Include="2-labbymezzage\js\foundation\foundation.interchange.js" />
+    <Content Include="2-labbymezzage\js\foundation\foundation.joyride.js" />
+    <Content Include="2-labbymezzage\js\foundation\foundation.js" />
+    <Content Include="2-labbymezzage\js\foundation\foundation.magellan.js" />
+    <Content Include="2-labbymezzage\js\foundation\foundation.offcanvas.js" />
+    <Content Include="2-labbymezzage\js\foundation\foundation.orbit.js" />
+    <Content Include="2-labbymezzage\js\foundation\foundation.reveal.js" />
+    <Content Include="2-labbymezzage\js\foundation\foundation.tab.js" />
+    <Content Include="2-labbymezzage\js\foundation\foundation.tooltip.js" />
+    <Content Include="2-labbymezzage\js\foundation\foundation.topbar.js" />
+    <Content Include="2-labbymezzage\js\jquery.js" />
+    <Content Include="2-labbymezzage\js\modernizr.js" />
+    <Content Include="2-labbymezzage\js\vendor\custom.modernizr.js" />
+    <Content Include="2-labbymezzage\js\vendor\fastclick.js" />
+    <Content Include="2-labbymezzage\js\vendor\jquery.autocomplete.js" />
+    <Content Include="2-labbymezzage\js\vendor\jquery.cookie.js" />
+    <Content Include="2-labbymezzage\js\vendor\jquery.js" />
+    <Content Include="2-labbymezzage\js\vendor\placeholder.js" />
+    <Content Include="2-labbymezzage\message.js" />
+    <Content Include="2-labbymezzage\messageboard.js" />
+    <Content Include="2-labbymezzage\script.js" />
     <Content Include="3-gameon\memory\pics\0.png" />
     <Content Include="3-gameon\memory\pics\1.png" />
     <Content Include="3-gameon\memory\pics\2.png" />
@@ -91,6 +122,7 @@
     <Content Include="2-labbymezzage\README.md" />
     <Content Include="3-gameon\README.md" />
     <Content Include="4-forms\README.md" />
+    <Content Include="2-labbymezzage\img\.gitkeep" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
