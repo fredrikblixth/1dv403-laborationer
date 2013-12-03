@@ -1,4 +1,4 @@
-﻿'use strict';
+'use strict';
 
 if(!NodeList.prototype.forEach) {
     NodeList.prototype.forEach = Array.prototype.forEach;
@@ -38,11 +38,18 @@ var MessageBoard = {
 
     renderMessage: function (message, number) {
         var messageBoard = document.querySelector("#messageBoard");
+        var labelRow = document.createElement("div");
         var row = document.createElement("div");
+        labelRow.setAttribute("class", "row");
         row.setAttribute("class", "row");
+        messageBoard.appendChild(labelRow);
         messageBoard.appendChild(row);
+        var tempStr = "<div class='large-10 columns'>" + "<span class='label right'>" + message.getDate().getHours() + ":" + message.getDate().getMinutes() + ":" + message.getDate().getSeconds() + "</span>";
 
-        var tempStr = "<div class='large-10 columns'><div class='panel callout'><p>";
+        labelRow.innerHTML = tempStr;
+
+        tempStr = "<div class='large-10 columns'>";
+        tempStr += "<div class='panel callout'><p>";
         tempStr += message.getHTMLText();
         tempStr += "</p></div></div><div class='small-2 columns' data-bind='" + message.toString() + "'><a class='button tiny alert delete'";
         tempStr += ">Ta bort</a><a href='#' class='button tiny date'>Tid</a></div>";

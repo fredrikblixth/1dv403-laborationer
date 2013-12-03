@@ -28,5 +28,5 @@ Message.prototype.getHTMLText = function () {
     };
 
 Message.prototype.getDateText = function () {
-    return "Inl‰gget skapades: " + this.getDate().toLocaleString();
+    return "Inl√§gget skapades: " + this.getDate().toLocaleString();
 };
