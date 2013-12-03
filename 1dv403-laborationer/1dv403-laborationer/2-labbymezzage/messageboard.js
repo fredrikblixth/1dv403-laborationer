@@ -33,7 +33,7 @@ var MessageBoard = {
         var tempStr = "<div class='large-10 columns'><div class='panel callout'><p>";
         tempStr += message.getHTMLText();
         tempStr += "</p></div></div><div class='small-2 columns' data-bind='" + message.toString() + "'><a class='button tiny alert delete'";
-        tempStr += ">Ta bort</a><a class='button tiny date'>Tid</a></div>";
+        tempStr += ">Ta bort</a><a href='#' class='button tiny date'>Tid</a></div>";
 
         row.innerHTML = tempStr;
     },
