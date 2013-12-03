@@ -1,4 +1,4 @@
-'use strict';
+﻿'use strict';
 
 if(!NodeList.prototype.forEach) {
     NodeList.prototype.forEach = Array.prototype.forEach;
@@ -11,8 +11,20 @@ var MessageBoard = {
     textArea: document.querySelector("textarea"),
 
     init: function (e) {
-        MessageBoard.renderMessages(MessageBoard.messages)
+        MessageBoard.renderMessages(MessageBoard.messages);
         MessageBoard.renderMessageCount();
+        MessageBoard.submitButton.addEventListener("click", MessageBoard.submit, false);
+        MessageBoard.textArea.addEventListener("keypress", function (e) {
+            if (e.keyCode === 13) {
+                if (e.shiftKey === true) {
+                    return;
+                }
+                else {
+                    MessageBoard.submit();
+                    e.preventDefault();
+                }
+            }
+        });
     },
 
     submit: function () {
@@ -94,16 +106,5 @@ var MessageBoard = {
 };
 
 window.onload = MessageBoard.init();
-MessageBoard.submitButton.addEventListener("click", MessageBoard.submit, false);
-MessageBoard.textArea.addEventListener("keypress", function (e) {
-    if (e.keyCode === 13) {
-        if (e.shiftKey === true) {
-            return;
-        }
-        else {
-            MessageBoard.submit();
-            e.preventDefault();
-        }
-    }
-});
+
 
