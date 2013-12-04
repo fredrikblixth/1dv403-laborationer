@@ -1,11 +1,10 @@
 'use strict';
 
-if(!NodeList.prototype.forEach) {
+if (!NodeList.prototype.forEach) {
     NodeList.prototype.forEach = Array.prototype.forEach;
 }
 
 var MessageBoard = {
-
     messages: [],
     submitButton: document.querySelector("#submitButton"),
     textArea: document.querySelector("textarea"),
@@ -58,7 +57,7 @@ var MessageBoard = {
         labelRow.innerHTML = tempStr;
 
         tempStr = "<div class='large-8 columns'>";
-        tempStr += "<div class='panel callout' data-id='"+ id +"'><p>";
+        tempStr += "<div class='panel callout' data-id='" + id + "'><p>";
         tempStr += message.getHTMLText();
         tempStr += "</p></div></div><div class='small-4 columns' data-id='" + id + "'><a class='button tiny alert delete'";
         tempStr += ">Ta bort</a><a href='#' class='button tiny date'>Tid</a><a href='#' class='button tiny edit'>Ändra</a></div>";
@@ -131,7 +130,6 @@ var MessageBoard = {
         var editTextArea = textContainer.querySelector("#editTextArea");
         editTextArea.focus();
         editTextArea.innerHTML = text;
-        
 
         buttonDiv.innerHTML = "<a href='#' class='button tiny' id='saveButton' data-id='" + messageId + "'>Spara</a>";
         var saveButton = buttonDiv.querySelector("#saveButton");
@@ -159,5 +157,3 @@ var MessageBoard = {
 };
 
 window.onload = MessageBoard.init();
-
-
