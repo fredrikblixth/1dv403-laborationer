@@ -44,7 +44,16 @@ var MessageBoard = {
         row.setAttribute("class", "row");
         messageBoard.appendChild(labelRow);
         messageBoard.appendChild(row);
-        var tempStr = "<div class='large-8 columns'>" + "<span class='label right'>" + message.getDate().getHours() + ":" + message.getDate().getMinutes() + ":" + message.getDate().getSeconds() + "</span>";
+
+        var hours = message.getDate().getHours();
+        var minutes = message.getDate().getMinutes();
+        var seconds = message.getDate().getSeconds();
+
+        hours = (hours < 10) ? "0" + hours : hours;
+        minutes = (minutes < 10) ? "0" + minutes : minutes;
+        seconds = (seconds < 10) ? "0" + seconds : seconds;
+
+        var tempStr = "<div class='large-8 columns'>" + "<span class='label right'>" + hours + ":" + minutes + ":" + seconds + "</span>";
 
         labelRow.innerHTML = tempStr;
 
