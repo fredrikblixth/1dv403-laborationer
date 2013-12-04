@@ -7,7 +7,7 @@ function Message(message, date) {
     };
     
     this.setText = function (_text) {
-        message = text;
+        message = _text;
     };
     
     this.getDate = function () {
@@ -15,7 +15,7 @@ function Message(message, date) {
     };
     
     this.setDate = function (_date) {
-        date = messageDate;
+        date = _date;
     };
 }
 
