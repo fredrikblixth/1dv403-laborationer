@@ -14,6 +14,7 @@ var MemoryBoard = function (rows, cols, boardNumber) {
     this.numberOfImagePairs = 0;
     this.correctAnswers = 0;
     this.currentGuess = 0;
+    this.gameFinished = false;
     this.memoryBoardDiv = document.createElement("div");
     self.memoryBoardDiv.setAttribute("class", "memoryBoard" + boardNumber);
 
@@ -92,7 +93,7 @@ var MemoryBoard = function (rows, cols, boardNumber) {
     };
 
     this.makeGuess = function (e) {
-        if (e.srcElement.getAttribute("id") === "guess1" || e.srcElement.getAttribute("id") === "guess2") {
+        if (e.srcElement.getAttribute("id") === "guess1" || e.srcElement.getAttribute("id") === "guess2" || self.gameFinished) {
             return;
         }
         if (self.currentGuess < 2) {
@@ -134,7 +135,8 @@ var MemoryBoard = function (rows, cols, boardNumber) {
         }
 
         if (self.correctAnswers === self.numberOfImagePairs) {
-            this.renderResult();
+            self.gameFinished = true;
+            self.renderResult();
         };
     };
 
@@ -154,7 +156,7 @@ var MemoryBoard = function (rows, cols, boardNumber) {
     this.renderResult = function () {
         var result = document.querySelector("#result" + boardNumber);
         var h3 = document.createElement("h3");
-        h3.textContent = "Grattis! Du vann!!";
+        h3.textContent = "Grattis! Du vann!! det tog " + self.totalNumberOfGuesses + " gissningar!";
         result.appendChild(h3);
     };
 }
