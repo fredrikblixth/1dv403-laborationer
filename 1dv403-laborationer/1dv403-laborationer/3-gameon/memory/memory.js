@@ -11,12 +11,15 @@ var MemoryBoard = function (rows, cols, boardNumber) {
     this.rows = rows;
     this.cols = cols;
     this.totalNumberOfGuesses = 0;
-    this.currentGuess = 0
+    this.numberOfImagePairs = 0;
+    this.correctAnswers = 0;
+    this.currentGuess = 0;
     this.memoryBoardDiv = document.createElement("div");
-    self.memoryBoardDiv.setAttribute("class", "messageBoard" + boardNumber);
+    self.memoryBoardDiv.setAttribute("class", "memoryBoard" + boardNumber);
 
     this.init = function () {
-        this.imageArray = RandomGenerator.getPictureArray(this.rows, this.cols);
+        self.imageArray = RandomGenerator.getPictureArray(self.rows, self.cols);
+        self.numberOfImagePairs = self.imageArray.length / 2;
         var body = document.querySelector("body");
         var rowDiv = document.createElement("div");
         rowDiv.setAttribute("class", "row");
@@ -24,11 +27,17 @@ var MemoryBoard = function (rows, cols, boardNumber) {
         headerDiv.setAttribute("class", "large-12 columns");
         var h1 = document.createElement("h1");
         h1.textContent = "Memory " + boardNumber + "!";
+        var resultRow = document.createElement("div");
+        resultRow.setAttribute("class", "row");
+        var resultDiv = document.createElement("div");
+        resultDiv.setAttribute("id", "result" + boardNumber);
+        resultRow.appendChild(resultDiv);
 
 
-        this.renderBoard(self.memoryBoardDiv);
+        self.renderBoard(self.memoryBoardDiv);
         headerDiv.appendChild(h1);
         rowDiv.appendChild(headerDiv);
+        body.insertBefore(resultRow, body.firstChild);
         body.insertBefore(self.memoryBoardDiv, body.firstChild);
         body.insertBefore(rowDiv, body.firstChild);
 
@@ -36,8 +45,7 @@ var MemoryBoard = function (rows, cols, boardNumber) {
     };
 
     this.addClickEvent = function () {
-        var as = self.memoryBoardDiv.querySelectorAll("a.secret");
-        console.log(as.length);
+        var as = self.memoryBoardDiv.querySelectorAll("a");
         as.forEach(function (a) {
             a.addEventListener("click", self.makeGuess, false);
         });
@@ -72,7 +80,6 @@ var MemoryBoard = function (rows, cols, boardNumber) {
     this.renderSecretElement = function (imageNumber) {
         var li = document.createElement("li");
         var a = document.createElement("a");
-        a.setAttribute("class", "secret");
         a.setAttribute("href", "#");
         var img = document.createElement("img");
         img.setAttribute("class", "th");
@@ -85,23 +92,19 @@ var MemoryBoard = function (rows, cols, boardNumber) {
     };
 
     this.makeGuess = function (e) {
-        if(self.currentGuess < 2) {
-            console.log("click!!")
+        if (e.srcElement.getAttribute("id") === "guess1" || e.srcElement.getAttribute("id") === "guess2") {
+            return;
+        }
+        if (self.currentGuess < 2) {
             this.removeAttribute("class");
-            this.removeEventListener("click", self.makeGuess, false);
-            e.stopPropagation();
-            e.preventDefault();
-            var currentImage = this.firstChild;
-            self.openImage(currentImage);
+            self.openImage(e.srcElement);
 
-            if (self.currentGuess === 2) {
-                self.currentGuess = 0;
+            if (self.currentGuess === 2) { 
                 var wait = 1000;
                 setTimeout(function () {
                     self.checkAnswers();
                 }, wait);
             }
-            self.addClickEvent();
         }
     };
 
@@ -114,6 +117,7 @@ var MemoryBoard = function (rows, cols, boardNumber) {
     };
 
     this.checkAnswers = function () {
+        self.currentGuess = 0;
         self.totalNumberOfGuesses++;
         console.log(self.memoryBoardDiv);
         var guess1 = self.memoryBoardDiv.querySelector("#guess1");
@@ -122,11 +126,16 @@ var MemoryBoard = function (rows, cols, boardNumber) {
         if (guess1.getAttribute("data-id") === guess2.getAttribute("data-id")) {
             self.correctImage(guess1);
             self.correctImage(guess2);
+            self.correctAnswers++;
         }
         else {
             self.closeImage(guess1);
             self.closeImage(guess2);
         }
+
+        if (self.correctAnswers === self.numberOfImagePairs) {
+            this.renderResult();
+        };
     };
 
     this.closeImage = function (image) {
@@ -140,6 +149,13 @@ var MemoryBoard = function (rows, cols, boardNumber) {
         var a = image.parentElement;
         a.removeAttribute("class");
         image.removeAttribute("id");
+    };
+
+    this.renderResult = function () {
+        var result = document.querySelector("#result" + boardNumber);
+        var h3 = document.createElement("h3");
+        h3.textContent = "Grattis! Du vann!!";
+        result.appendChild(h3);
     };
 }
 
