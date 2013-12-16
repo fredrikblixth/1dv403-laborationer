@@ -96,6 +96,9 @@ var MemoryBoard = function (rows, cols, boardNumber) {
         if (e.srcElement.getAttribute("id") === "guess1" || e.srcElement.getAttribute("id") === "guess2" || self.gameFinished) {
             return;
         }
+        if (e.srcElement.parentElement.getAttribute("class") === "correct") {
+            return;
+        }
         if (self.currentGuess < 2) {
             this.removeAttribute("class");
             self.openImage(e.srcElement);
@@ -149,7 +152,7 @@ var MemoryBoard = function (rows, cols, boardNumber) {
 
     this.correctImage = function (image) {
         var a = image.parentElement;
-        a.removeAttribute("class");
+        a.setAttribute("class", "correct");
         image.removeAttribute("id");
     };
 
