@@ -7,9 +7,8 @@ if (!NodeList.prototype.forEach) {
 var PaymentPlanForm = function () {
 
     var self = this;
-    var purchaseConfirmed = false;
 
-    this.Init = function () {
+    this.init = function () {
         self.addEvents();
     };
 
@@ -24,11 +23,6 @@ var PaymentPlanForm = function () {
 
         var confirmButton = document.querySelector("#confirmButton");
         confirmButton.addEventListener("click", self.confirmPurchase, false);
-    };
-
-    self.submit = function () {
-        console.log("submit false");
-        return false;
     };
 
     self.inputValidation = function (e) {
@@ -111,6 +105,7 @@ var PaymentPlanForm = function () {
 
         if (numberOfErrors !== 0) {
             e.preventDefault();
+            e.stopImmediatePropagation();
         }
         else {
             self.populateModal();
@@ -218,10 +213,9 @@ var PaymentPlanForm = function () {
     }
     
     self.confirmPurchase = function () {
-        console.log("Confirmed!");
         var form = document.querySelector("#form");
         form.submit();
     }
 }
 var paymentPlanForm = new PaymentPlanForm();
-window.onload = paymentPlanForm.Init();
+window.onload = paymentPlanForm.init();

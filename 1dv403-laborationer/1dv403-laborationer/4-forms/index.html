@@ -45,29 +45,29 @@
         </form>
     </div>
     <div id="confirmationModal" class="reveal-modal" data-reveal>
-        <h2>Bekräfta köp</h2>
+        <h1>Bekräfta köp</h1>
         <div class="row">
-            <div class="small-4 columns"></div>
-            <label for="firstnamePanel">Förnamn:</label><div class="panel"><p id="firstnamePanel"></p></div>
+            <div class="large-12 columns">
+                <p>Förnamn:</p><div class="panel"><p id="firstnamePanel"></p></div>
+                <p>Efternamn:</p><div class="panel"><p id="lastnamePanel"></p></div>
+            </div>
         </div>
         <div class="row">
-            <div class="small-4 columns"></div>
-            <label for="lastnamePanel">Efternamn:</label><div class="panel"><p id="lastnamePanel"></p></div>
+            <div class="large-12 columns">
+                <p>Postnummer:</p><div class="panel"><p id="zipCodePanel"></p></div>
+                <p>E-post:</p><div class="panel"><p id="emailPanel"></p></div>
+            </div>
         </div>
         <div class="row">
-            <div class="small-4 columns"></div>
-            <label for="zipCodePanel">Postnummer:</label><div class="panel"><p id="zipCodePanel"></p></div>
+            <div class="large-12 columns">
+                <p>Prismodell:</p><div class="panel"><p id="priceModelPanel"></p></div>
+            </div>
         </div>
         <div class="row">
-            <div class="small-4 columns"></div>
-            <label for="emailPanel">E-post:</label><div class="panel"><p id="emailPanel"></p></div>
-        </div>
-        <div class="row">
-            <div class="small-4 columns"></div>
-            <label for="priceModelPanel">Prismodell:</label><div class="panel"><p id="priceModelPanel"></p></div>
-        </div>
-        <div class="row">
-            <button class="close-reveal-modal-button" id="confirmButton">Bekräfta</button>
+            <div class="large-12 columns">
+                <button class="close-reveal-modal-button success" id="confirmButton">Bekräfta</button>
+                <button class="close-reveal-modal-button alert">Avbryt</button>
+            </div>
         </div>
     </div>
     <script src="script.js"></script>
