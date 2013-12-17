@@ -172,6 +172,7 @@
     <Content Include="4-forms\js\vendor\jquery.cookie.js" />
     <Content Include="4-forms\js\vendor\jquery.js" />
     <Content Include="4-forms\js\vendor\placeholder.js" />
+    <Content Include="4-forms\script.js" />
     <Content Include="index.html" />
     <Content Include="Web.config" />
   </ItemGroup>
