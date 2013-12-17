@@ -12,74 +12,62 @@
     <script src="js/vendor/custom.modernizr.js"></script>
 </head>
 <body>
-    <div class="row">
-        <div class="large-4 columns">
-            <h3>Fyll i din betalningsplan</h3>
-        </div>
-    </div>
-    <div class="row">
-        <div class="large-4 columns">
-            <label>Namn</label>
-            <input id="firstname" type="text" />
-        </div>
-    </div>
-    <div class="row">
-        <div class="large-4 columns">
-            <label>Efternamn</label>
-            <input id="lastname" type="text" />
-        </div>
-    </div>
-    <div class="row">
-        <div class="large-4 columns">
-            <label>Postnummer</label>
-            <input id="zipCode" type="tel" />
-        </div>
-    </div>
-    <div class="row">
-        <div class="large-4 columns">
-            <label>E-post</label>
-            <input id="email" type="text" />
-        </div>
-    </div>
-    <div class="row">
-        <div class="large-4 columns">
-            <label>Prismodell</label>
-            <select id="priceModel">
-                <option value="low">Låg</option>
-                <option value="medium">Mellan</option>
-                <option value="high">Hög</option>
-            </select>
-        </div>
-    </div>
-    <div class="row">
-        <div class="large-4 columns">
-            <a href="#" id="submitForm" class="button" data-reveal-id="confirmationModal">Skicka</a>
-        </div>
+    <div class="large-4 columns">
+        <form id="form" method="post" action="http://voyager.lnu.se/tekinet/kurser/dtt/wp_webbteknik/process_form.php">
+            <fieldset>
+                <legend>Fyll i din betalningsplan</legend>
+                <div class="input-unit">
+                    <label for="firstname">Namn</label>
+                    <input name="Firstname" id="firstname" type="text" />
+                </div>
+                <div class="input-unit">
+                    <label for="lastname">Efternamn</label>
+                    <input name="Lastname" id="lastname" type="text" />
+                </div>
+                <div class="input-unit">
+                    <label for="zipCode">Postnummer</label>
+                    <input name="Zip code" id="zipCode" type="tel" />
+                </div>
+                <div class="input-unit">
+                    <label for="email">E-post</label>
+                    <input name="e-mail" id="email" type="text" />
+                </div>
+                <div class="input-unit">
+                    <label for="priceModel">Prismodell</label>
+                    <select name="Price Model" id="priceModel">
+                        <option value="low">Låg</option>
+                        <option value="medium">Mellan</option>
+                        <option value="high">Hög</option>
+                    </select>
+                </div>
+            </fieldset>
+            <button id="submitForm" type="submit" data-reveal-id="confirmationModal">Skicka</button>
+        </form>
     </div>
     <div id="confirmationModal" class="reveal-modal" data-reveal>
         <h2>Bekräfta köp</h2>
         <div class="row">
             <div class="small-4 columns"></div>
-            <label>Förnamn:</label><div class="panel"><p id="firstnamePanel"></p></div>
+            <label for="firstnamePanel">Förnamn:</label><div class="panel"><p id="firstnamePanel"></p></div>
         </div>
         <div class="row">
             <div class="small-4 columns"></div>
-            <label>Efternamn:</label><div class="panel"><p id="lastnamePanel"></p></div>
+            <label for="lastnamePanel">Efternamn:</label><div class="panel"><p id="lastnamePanel"></p></div>
         </div>
         <div class="row">
             <div class="small-4 columns"></div>
-            <label>Postnummer:</label><div class="panel"><p id="zipCodePanel"></p></div>
+            <label for="zipCodePanel">Postnummer:</label><div class="panel"><p id="zipCodePanel"></p></div>
         </div>
         <div class="row">
             <div class="small-4 columns"></div>
-            <label>E-post:</label><div class="panel"><p id="emailPanel"></p></div>
+            <label for="emailPanel">E-post:</label><div class="panel"><p id="emailPanel"></p></div>
         </div>
         <div class="row">
             <div class="small-4 columns"></div>
-            <label>Prismodell:</label><div class="panel"><p id="priceModelPanel"></p></div>
+            <label for="priceModelPanel">Prismodell:</label><div class="panel"><p id="priceModelPanel"></p></div>
         </div>
         <div class="row">
-            <a class="close-reveal-modal-button" id="confirmButton">Bekräfta</a>
+            <button class="close-reveal-modal-button" id="confirmButton">Bekräfta</button>
         </div>
     </div>
     <script src="script.js"></script>

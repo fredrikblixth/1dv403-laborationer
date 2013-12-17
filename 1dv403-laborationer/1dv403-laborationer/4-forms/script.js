@@ -26,6 +26,11 @@ var PaymentPlanForm = function () {
         confirmButton.addEventListener("click", self.confirmPurchase, false);
     };
 
+    self.submit = function () {
+        console.log("submit false");
+        return false;
+    };
+
     self.inputValidation = function (e) {
         var text = e.srcElement.value;
         var elementId = e.srcElement.getAttribute("id");
@@ -105,17 +110,11 @@ var PaymentPlanForm = function () {
         });
 
         if (numberOfErrors !== 0) {
-            e.stopImmediatePropagation();
+            e.preventDefault();
         }
         else {
             self.populateModal();
-            
-            //if (!purchaseConfirmed) {
-            //    console.log("rofl!")
-            //    e.stopImmediatePropagation();
-            //}
         }
-        console.log("Submit!");
     };
 
 
@@ -183,7 +182,7 @@ var PaymentPlanForm = function () {
         divChildNodes.forEach(function (child) {
             if (child.tagName !== undefined) {
                 if (child.tagName.toLowerCase() === "small") {
-                    div.setAttribute("class", "large-4 columns");
+                    div.setAttribute("class", "input-unit");
                     div.removeChild(child);
                 };
             };
@@ -196,6 +195,8 @@ var PaymentPlanForm = function () {
         var zipCode = document.querySelector("#zipCode");
         var email = document.querySelector("#email");
         var priceModel = document.querySelector("#priceModel");
+        var chosenValue = priceModel.value;
+        var priceModelOptions = priceModel.childNodes;
 
         var firstNamePanel = document.querySelector("#firstnamePanel");
         var lastNamePanel = document.querySelector("#lastnamePanel");
@@ -203,15 +204,23 @@ var PaymentPlanForm = function () {
         var emailPanel = document.querySelector("#emailPanel");
         var priceModelPanel = document.querySelector("#priceModelPanel");
 
+
         firstNamePanel.textContent = firstName.value;
         lastNamePanel.textContent = lastName.value;
         zipCodePanel.textContent = zipCode.value;
         emailPanel.textContent = email.value;
-        priceModelPanel.textContent = priceModel.value;
+        
+        priceModelOptions.forEach(function (option) {
+            if (option.value === chosenValue) {
+                priceModelPanel.textContent = option.textContent;
+            };
+        });
     }
     
     self.confirmPurchase = function () {
-        purchaseConfirmed = true;
+        console.log("Confirmed!");
+        var form = document.querySelector("#form");
+        form.submit();
     }
 }
 var paymentPlanForm = new PaymentPlanForm();

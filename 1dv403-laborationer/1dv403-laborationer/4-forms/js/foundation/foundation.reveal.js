@@ -68,7 +68,7 @@
         .off('.reveal')
         .on('click.fndtn.reveal', this.close_targets(), function (e) {
 
-          e.preventDefault();
+          //e.preventDefault();
 
           if (!self.locked) {
             var settings = $('[data-reveal].open').data('reveal-init'),
