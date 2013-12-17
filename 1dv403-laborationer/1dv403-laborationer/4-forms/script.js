@@ -109,12 +109,13 @@ var PaymentPlanForm = function () {
         }
         else {
             self.populateModal();
-
+            
             //if (!purchaseConfirmed) {
             //    console.log("rofl!")
             //    e.stopImmediatePropagation();
             //}
         }
+        console.log("Submit!");
     };
 
 
