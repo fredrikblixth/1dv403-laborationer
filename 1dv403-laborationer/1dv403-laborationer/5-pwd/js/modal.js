@@ -7,7 +7,7 @@ if (!NodeList.prototype.forEach) {
 var Modal = function () {
     var self = this;
     var modalDiv = document.createElement("div");
-    modalDiv.setAttribute("class", "window");
+    modalDiv.setAttribute("class", "window inactive");
     modalDiv.setAttribute("draggable", "true");
 
     var captionDiv = document.createElement("div");

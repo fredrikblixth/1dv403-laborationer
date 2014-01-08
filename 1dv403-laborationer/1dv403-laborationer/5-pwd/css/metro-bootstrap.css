@@ -183,6 +183,19 @@ a {
     page-break-after: avoid;
   }
 }
+.metro
+{
+    width: 1680px;
+    height: 1050px;
+    background-image: url('../pics/img0.jpg');
+    background-repeat: no-repeat;
+}
+.metro #menuRow
+{
+    position:absolute;
+    top: 850px;
+    left: 100px;
+}
 .metro .box-sizing-border {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;

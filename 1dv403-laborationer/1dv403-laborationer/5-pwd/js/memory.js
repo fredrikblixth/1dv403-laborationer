@@ -86,8 +86,10 @@ var MemoryBoard = function (rows, cols, boardNumber) {
     this.renderSecretElement = function (imageNumber) {
         var li = document.createElement("li");
         var a = document.createElement("a");
+        a.setAttribute("draggable", "false");
         a.setAttribute("href", "#");
         var img = document.createElement("img");
+        img.setAttribute("draggable", "false");
         img.setAttribute("class", "th");
         img.setAttribute("src", "pics/0.png");
         img.setAttribute("data-id", this.imageArray[imageNumber]);

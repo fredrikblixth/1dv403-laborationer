@@ -34,21 +34,61 @@ var Desktop = function () {
     };
 
     self.drop = function (event) {
-        console.log("drop");
         var offset = event.dataTransfer.getData("text/plain").split(',');
         var dm = moveThis;
-        dm.style.left = (event.clientX + parseInt(offset[0], 10)) + 'px';
-        dm.style.top = (event.clientY + parseInt(offset[1], 10)) + 'px';
+
+        var desktop = document.querySelector(".metro");
+
+        var maxX = desktop.offsetWidth - dm.offsetWidth;
+        var minX = 0;
+        var maxY = desktop.offsetHeight - dm.offsetHeight;
+        var minY = 0;
+
+        var desiredX = event.clientX + parseInt(offset[0], 10);
+        var desiredY = event.clientY + parseInt(offset[1], 10);
+
+        if (desiredX < maxX && desiredX > minX) {
+            dm.style.left = desiredX + 'px';
+        }
+        else {
+            if (desiredX > maxX) {
+                dm.style.left = maxX + 'px';
+            }
+            else {
+                dm.style.left = minX + 'px';
+            }
+        }
+
+        if (desiredY < maxY && desiredY > minY) {
+            dm.style.top = desiredY + 'px';
+        }
+        else {
+            if (desiredY > maxY) {
+                dm.style.top = maxY + 'px';
+            }
+            else {
+                dm.style.top = minY + 'px';
+            }
+        }
+
         event.preventDefault();
         return false;
     };
 
     self.dragStart = function (event) {
-        console.log("start");
+        event.srcElement.setAttribute("class", "window");
         moveThis = event.srcElement;
         var style = window.getComputedStyle(event.target, null);
         event.dataTransfer.setData("text/plain",
         (parseInt(style.getPropertyValue("left"), 10) - event.clientX) + ',' + (parseInt(style.getPropertyValue("top"), 10) - event.clientY));
+    };
+
+    self.setFocus = function (event) {
+        event.srcElement.setAttribute("class", "window");
+    };
+
+    self.setInactive = function (event) {
+        event.srcElement.setAttribute("class", "window inactive");
     };
 };
 
