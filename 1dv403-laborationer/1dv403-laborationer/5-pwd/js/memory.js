@@ -15,8 +15,12 @@ var MemoryBoard = function (rows, cols, boardNumber) {
     this.correctAnswers = 0;
     this.currentGuess = 0;
     this.gameFinished = false;
+
     this.memoryBoardDiv = document.createElement("div");
     self.memoryBoardDiv.setAttribute("class", "memoryBoard" + boardNumber);
+
+    this.resultDiv = document.createElement("div");
+    self.resultDiv.setAttribute("id", "result" + boardNumber);
 
     this.init = function () {
         self.imageArray = RandomGenerator.getPictureArray(self.rows, self.cols);
@@ -28,9 +32,7 @@ var MemoryBoard = function (rows, cols, boardNumber) {
         headerDiv.setAttribute("class", "large-12 columns");
         var resultRow = document.createElement("div");
         resultRow.setAttribute("class", "row");
-        var resultDiv = document.createElement("div");
-        resultDiv.setAttribute("id", "result" + boardNumber);
-        resultRow.appendChild(resultDiv);
+        resultRow.appendChild(self.resultDiv);
 
 
         self.renderBoard(self.memoryBoardDiv);
@@ -40,10 +42,6 @@ var MemoryBoard = function (rows, cols, boardNumber) {
         memory.appendChild(rowDiv);
         memory.appendChild(self.memoryBoardDiv);
         memory.appendChild(resultRow);
-
-        //body.insertBefore(resultRow, body.firstChild);
-        //body.insertBefore(self.memoryBoardDiv, body.firstChild);
-        //body.insertBefore(rowDiv, body.firstChild);
 
         self.addClickEvent();
 
@@ -130,7 +128,6 @@ var MemoryBoard = function (rows, cols, boardNumber) {
     this.checkAnswers = function () {
         self.currentGuess = 0;
         self.totalNumberOfGuesses++;
-        console.log(self.memoryBoardDiv);
         var guess1 = self.memoryBoardDiv.querySelector("#guess1");
         var guess2 = self.memoryBoardDiv.querySelector("#guess2");
 
@@ -164,9 +161,8 @@ var MemoryBoard = function (rows, cols, boardNumber) {
     };
 
     this.renderResult = function () {
-        var result = document.querySelector("#result" + boardNumber);
         var h5 = document.createElement("h5");
         h5.textContent = "Grattis! Du vann!! det tog " + self.totalNumberOfGuesses + " gissningar!";
-        result.appendChild(h5);
+        self.resultDiv.appendChild(h5);
     };
 }
