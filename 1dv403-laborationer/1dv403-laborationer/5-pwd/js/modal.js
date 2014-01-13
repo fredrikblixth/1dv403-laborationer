@@ -39,15 +39,19 @@ var Modal = function (app) {
             self.renderTitle("Memory");
             break;
         case "pictures":
-            iconSpan.setAttribute("class", "icon icon-rofl");
+            iconSpan.setAttribute("class", "icon icon-pictures");
             self.renderTitle("Bildgalleri");
             break;
+        case "picture":
+            iconSpan.setAttribute("class", "icon icon-pictures");
+            self.renderTitle("Bild");
+            break;
         case "chat":
-            iconSpan.setAttribute("class", "icon icon-chat");
+            iconSpan.setAttribute("class", "icon icon-comments");
             self.renderTitle("Chat");
             break;
         case "news":
-            iconSpan.setAttribute("class", "icon icon-android");
+            iconSpan.setAttribute("class", "icon icon-newspaper");
             self.renderTitle("Nyheter");
             break;
     };
@@ -65,19 +69,16 @@ var Modal = function (app) {
         modal.parentNode.removeChild(modal);
     };
 
-    self.minimizeModal = function (e) {
-
+    self.setSize = function (width, height) {
+        self.modalDiv.style.width = (width + 15) + "px";
+        self.modalDiv.style.height = (height + 40) + "px";
+        contentDiv.style.width = width + "px";
+        contentDiv.style.height = height + "px";
     };
-
-    self.resizeModal = function (e) {
-
-    };
-
-
 
     self.renderContent = function (content) {
         if (typeof (content) === "object") {
-        contentDiv.appendChild(content);
+            contentDiv.appendChild(content);
         }
         else {
             contentDiv.innerHTML = content;
@@ -100,7 +101,6 @@ var Modal = function (app) {
             modal.setAttribute("class", "window inactive");
             modal.style.zIndex = 0;
         });
-
         self.modalDiv.setAttribute("class", "window");
         self.modalDiv.style.zIndex = 1000;
     };

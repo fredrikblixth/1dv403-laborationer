@@ -30,7 +30,6 @@ var MemoryBoard = function (rows, cols, boardNumber) {
         resultRow.setAttribute("class", "row");
         resultRow.appendChild(self.resultDiv);
 
-
         self.renderBoard(self.memoryBoardDiv);
         rowDiv.appendChild(headerDiv);
 
@@ -52,8 +51,7 @@ var MemoryBoard = function (rows, cols, boardNumber) {
     };
 
     this.renderBoard = function (memoryBoardDiv) {
-        
-        for(var i = 0; i < rows; i++){
+        for (var i = 0; i < rows; i++) {
             this.renderRow(memoryBoardDiv);
         }
     };
@@ -104,7 +102,7 @@ var MemoryBoard = function (rows, cols, boardNumber) {
             this.removeAttribute("class");
             self.openImage(e.srcElement);
 
-            if (self.currentGuess === 2) { 
+            if (self.currentGuess === 2) {
                 var wait = 1000;
                 setTimeout(function () {
                     self.checkAnswers();
