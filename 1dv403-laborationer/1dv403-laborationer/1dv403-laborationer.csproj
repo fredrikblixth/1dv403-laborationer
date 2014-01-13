@@ -176,6 +176,7 @@
     <Content Include="5-pwd\css\foundation.css" />
     <Content Include="5-pwd\css\metro-bootstrap.css" />
     <Content Include="5-pwd\css\normalize.css" />
+    <Content Include="5-pwd\css\style.css" />
     <Content Include="5-pwd\fonts\iconFont.dev.svg" />
     <Content Include="5-pwd\fonts\iconFont.svg" />
     <Content Include="5-pwd\index.html" />
@@ -186,6 +187,7 @@
     <Content Include="5-pwd\js\modal.js" />
     <Content Include="5-pwd\js\modernizr.js" />
     <Content Include="5-pwd\js\random.js" />
+    <Content Include="5-pwd\js\rss.js" />
     <Content Include="5-pwd\js\script.js" />
     <Content Include="5-pwd\pics\0.png" />
     <Content Include="5-pwd\pics\1.png" />

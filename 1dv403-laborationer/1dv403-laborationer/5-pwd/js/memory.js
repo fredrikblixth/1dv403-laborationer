@@ -1,9 +1,5 @@
 ﻿'use strict';
 
-if (!NodeList.prototype.forEach) {
-    NodeList.prototype.forEach = Array.prototype.forEach;
-}
-
 var MemoryBoard = function (rows, cols, boardNumber) {
     var self = this;
     this.imageArray = [];
