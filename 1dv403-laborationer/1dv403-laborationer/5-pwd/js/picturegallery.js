@@ -12,8 +12,8 @@ var PictureGallery = function () {
     loaderGif.setAttribute("src", "pics/ajax-loader.gif");
     loaderGif.setAttribute("draggable", "false");
     loaderGif.style.position = "absolute";
-    loaderGif.style.top = "140px";
-    loaderGif.style.left = "130px";
+    loaderGif.style.top = "240px";
+    loaderGif.style.left = "230px";
     self.galleryDiv.appendChild(loaderGif);
     var picArray = [];
 

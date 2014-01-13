@@ -23,7 +23,9 @@ var Desktop = function () {
         var modal = new Modal("memory");
         var memoryBoard = new MemoryBoard(4, 4, 1);
         var memoryDiv = memoryBoard.init();
+        modal.setSize(485, 210);
         modal.renderContent(memoryDiv);
+        
     };
 
     self.openRss = function () {
