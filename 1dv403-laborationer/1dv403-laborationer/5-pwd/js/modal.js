@@ -12,15 +12,10 @@ var Modal = function (app) {
     captionDiv.setAttribute("class", "caption");
 
     var iconSpan = document.createElement("span");
-    
 
-    switch (app) {
-        case "memory":
-        case "pictures":
-        case "chat":
-        case "news":
-            iconSpan.setAttribute("class", "icon icon-android");
-    };
+    self.renderTitle = function (title) {
+        windowTitle.textContent = title;
+    }
 
     var windowTitle = document.createElement("div");
     windowTitle.setAttribute("class", "title");
@@ -37,7 +32,25 @@ var Modal = function (app) {
 
     self.modalDiv.appendChild(captionDiv);
     self.modalDiv.appendChild(contentDiv);
-    
+
+    switch (app) {
+        case "memory":
+            iconSpan.setAttribute("class", "icon icon-android");
+            self.renderTitle("Memory");
+            break;
+        case "pictures":
+            iconSpan.setAttribute("class", "icon icon-rofl");
+            self.renderTitle("Bildgalleri");
+            break;
+        case "chat":
+            iconSpan.setAttribute("class", "icon icon-chat");
+            self.renderTitle("Chat");
+            break;
+        case "news":
+            iconSpan.setAttribute("class", "icon icon-android");
+            self.renderTitle("Nyheter");
+            break;
+    };
 
     self.addEvents = function () {
         self.modalDiv.addEventListener("dragstart", self.dragStart, false);
@@ -60,9 +73,15 @@ var Modal = function (app) {
 
     };
 
-    self.renderModal = function (title, content) {
-        windowTitle.textContent = title;
+
+
+    self.renderContent = function (content) {
+        if (typeof (content) === "object") {
         contentDiv.appendChild(content);
+        }
+        else {
+            contentDiv.innerHTML = content;
+        }
 
         var modals = document.querySelectorAll(".window");
         modals.forEach(function (modal) {

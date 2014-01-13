@@ -8,26 +8,41 @@ var Desktop = function () {
     var self = this;
     var memoryButton = document.querySelector("#memoryButton");
     var newsButton = document.querySelector("#newsButton");
+    var chatButton = document.querySelector("#chatButton");
+    var pictureButton = document.querySelector("#pictureButton");
 
     self.init = function () {
         document.body.addEventListener('dragover', self.dragOver, false);
         memoryButton.addEventListener("click", self.openMemory, false);
         newsButton.addEventListener("click", self.openRss, false);
+        chatButton.addEventListener("click", self.openChat, false);
+        pictureButton.addEventListener("click", self.openPictureGallery, false);
     };
 
     self.openMemory = function () {
         var modal = new Modal("memory");
         var memoryBoard = new MemoryBoard(4, 4, 1);
         var memoryDiv = memoryBoard.init();
-        modal.renderModal("Memory", memoryDiv);
-        self.init();
+        modal.renderContent(memoryDiv);
     };
 
     self.openRss = function () {
-        var rofl = new RssReader();
+        var rssUrl = "http://homepage.lnu.se/staff/tstjo/labbyServer/rssproxy/?url=" + escape("http://www.dn.se/m/rss/senaste-nytt");
         var modal = new Modal("news");
-        var div = rofl.getRssHTML();
-        modal.renderModal("RSS", div);
+        var ajaxCon = new AjaxCon(rssUrl, modal.renderContent);
+    };
+
+    self.openPictureGallery = function () {
+        var picGallery = new PictureGallery();
+        var pictureDiv = picGallery.getPictureDiv();
+        var modal = new Modal("pictures");
+        modal.renderContent(pictureDiv);
+    };
+
+    self.openChat = function () {
+        var chatUrl = "";
+        var modal = new Modal("chat");
+        var ajaxCon = new AjaxCon(chatUrl, modal.renderContent);
     };
 
     self.dragOver = function (event) {

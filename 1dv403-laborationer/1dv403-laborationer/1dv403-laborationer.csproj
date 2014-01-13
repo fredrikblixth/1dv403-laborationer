@@ -180,12 +180,14 @@
     <Content Include="5-pwd\fonts\iconFont.dev.svg" />
     <Content Include="5-pwd\fonts\iconFont.svg" />
     <Content Include="5-pwd\index.html" />
+    <Content Include="5-pwd\js\ajaxcon.js" />
     <Content Include="5-pwd\js\foundation.min.js" />
     <Content Include="5-pwd\js\jquery.js" />
     <Content Include="5-pwd\js\memory.js" />
     <Content Include="5-pwd\js\metro.min.js" />
     <Content Include="5-pwd\js\modal.js" />
     <Content Include="5-pwd\js\modernizr.js" />
+    <Content Include="5-pwd\js\picturegallery.js" />
     <Content Include="5-pwd\js\random.js" />
     <Content Include="5-pwd\js\rss.js" />
     <Content Include="5-pwd\js\script.js" />
