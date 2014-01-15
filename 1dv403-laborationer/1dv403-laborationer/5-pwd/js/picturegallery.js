@@ -46,8 +46,11 @@ var PictureGallery = function () {
         var img = document.createElement("img");
         img.setAttribute("src", pic.thumbURL);
         img.setAttribute("class", "th");
-        img.style.width = thumbWidth + "px";
-        img.style.height = thumbHeight + "px";
+        img.style.display = "block";
+        img.style.marginLeft = "auto";
+        img.style.marginRight = "auto";
+        img.style.width = pic.thumbWidth + "px";
+        img.style.height = pic.thumbHeight + "px";
         img.setAttribute("draggable", false);
 
         img.addEventListener("click", self.openImageModal, false);
@@ -85,6 +88,11 @@ var PictureGallery = function () {
 
     self.addImage = function () {
         var li = document.createElement("li");
+        li.style.border = "1px solid";
+        li.style.padding = "5px";
+        li.style.margin = "10px";
+        li.style.width = (thumbWidth + 15) + "px";
+        li.style.height = (thumbHeight + 15) + "px";
         li.appendChild(images[currentImage]);
         currentImage++;
         return li;
